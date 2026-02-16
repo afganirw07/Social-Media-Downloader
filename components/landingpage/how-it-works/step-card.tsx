@@ -1,9 +1,4 @@
-interface StepCardProps {
-  number: string
-  title: string
-  description: string
-  icon: React.ReactNode
-}
+import StepCardProps from "@/types/StepCardProps"
 
 export default function StepCard({ number, title, description, icon }: StepCardProps) {
   return (
