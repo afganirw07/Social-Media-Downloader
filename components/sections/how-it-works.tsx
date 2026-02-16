@@ -39,7 +39,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-20">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {steps.map((step) => (
             <StepCard
               key={step.number}
