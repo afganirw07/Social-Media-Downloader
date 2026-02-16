@@ -44,9 +44,11 @@ export function InputInputGroup() {
 
                         <button
                             type="submit"
-                            className="flex items-center cursor-pointer  gap-2 px-4 h-10 bg-black hover:bg-gray-900 text-white text-sm font-medium rounded-lg transition-colors">
+                            className="group flex items-center cursor-pointer  gap-2 px-4 h-10 bg-black hover:bg-gray-900 text-white text-sm font-medium rounded-lg transition-colors ">
                             Download
-                            <ArrowRight className="w-4 h-4" />
+                            <div className="transition-transform duration-300 group-hover:translate-x-1">
+                                <ArrowRight className="w-5 h-5" />
+                            </div>
                         </button>
                     </InputGroupAddon>
 
