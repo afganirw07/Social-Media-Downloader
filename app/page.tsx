@@ -6,6 +6,7 @@ import Testimonials from "@/components/sections/testi";
 import FAQ from "@/components/sections/faq";
 import Footer from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar";
+import CTASection from "@/components/sections/ctasection";
 
 
 export default function Home() {
@@ -49,7 +50,13 @@ export default function Home() {
       <section className="relative z-10 min-h-screen">
         <FAQ/>
       </section>
-      <section id="contact" className="mt-4">
+
+      {/* CTA */}
+      <section className="relative z-10 min-h-screen">
+        <CTASection/>
+      </section>
+
+      <section id="contact">
       <Footer/>
       </section>
 </div>
