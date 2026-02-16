@@ -8,7 +8,7 @@ export default function Hero() {
 
     return (
         <>
-            <div className="bg-grid-fade flex flex-col justify-center items-center py-16 px-4 lg:px-8">
+            <div className="bg-grid-fade flex flex-col justify-center items-center py-16 px-4 lg:px-8 ">
                 <h1 className="text-3xl md:text-7xl font-bold text-center text-black max-w-4xl md:max-w-6xl">
                     Download Videos From Any Social Media Instantly
                 </h1>
@@ -71,6 +71,17 @@ export default function Hero() {
                         <FaInstagram className="hover:text-pink-600 transition-colors cursor-pointer" />
                         <FaSquareXTwitter className="hover:text-black transition-colors cursor-pointer" />
                         </div>
+
+                    <div className="flex items-center justify-center gap-2 text-xs text-gray-500 mt-4">
+                        <span>Supports:</span>
+                        <span className="font-medium text-gray-700 hover:text-black transition-colors cursor-pointer">TikTok</span>
+                        <span>•</span>
+                        <span className="font-medium text-gray-700 hover:text-red-600 transition-colors cursor-pointer">YouTube</span>
+                        <span>•</span>
+                        <span className="font-medium text-gray-700 hover:text-pink-600 transition-colors cursor-pointer">Instagram</span>
+                        <span>•</span>
+                        <span className="font-medium text-gray-700 hover:text-black transition-colors cursor-pointer">X</span>
+                    </div>
             </div>
         </>
     )
