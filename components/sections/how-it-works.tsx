@@ -50,17 +50,6 @@ export default function HowItWorks() {
             />
           ))}
         </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <a href="#home"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-bold rounded-2xl hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
-          >
-            <Download className="w-6 h-6" />
-            Start Downloading Now
-          </a>
-        </div>
-
       </div>
     </div>
   )
