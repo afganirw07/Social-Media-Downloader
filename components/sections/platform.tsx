@@ -4,6 +4,7 @@ import { AiFillTikTok } from "react-icons/ai"
 import { FaYoutube, FaInstagram, FaFacebook, FaReddit, FaTwitter } from "react-icons/fa"
 import PlatformCard from "../../components/landingpage/platforms/platform-card"
 import PlatformShowcase from "../../components/landingpage/platforms/platform-showcase" 
+import StatsCounter from "../landingpage/platforms/stats-counter"
 import { motion } from "framer-motion"
 import { FaSquareXTwitter } from "react-icons/fa6"
 
@@ -94,7 +95,7 @@ export default function Platforms() {
         </div>
 
         {/* Stats Section - FIXED LAYOUT */}
-        {/* <div className="my-12">
+        <div className="my-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {stats.map((stat, index) => (
               <StatsCounter
@@ -106,7 +107,7 @@ export default function Platforms() {
               />
             ))}
           </div>
-        </div> */}
+        </div>
 
         {/* Platform Cards Grid */}
         <motion.div
