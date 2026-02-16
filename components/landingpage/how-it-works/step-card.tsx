@@ -11,7 +11,8 @@ export default function StepCard({ number, title, description, icon }: StepCardP
 
       <div className="flex flex-col items-center text-center">
         {/* Number Badge */}
-        <div className="w-16 h-16 rounded-full bg-linear-to-br bg-black text-white font-bold text-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+        <div className="w-16 h-16 bg-gradient-to-br from-gray-900 to-black text-white
+ rounded-full bg-linear-to-br bg-black text-white font-bold text-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
           {number}
         </div>
 
