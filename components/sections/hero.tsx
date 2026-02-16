@@ -1,19 +1,24 @@
 import { InputInputGroup } from "../features/url-input";
 import { AiFillTikTok } from "react-icons/ai";
-import { FaYoutube, FaInstagram, } from "react-icons/fa";
+import { FaYoutube, FaInstagram, FaFacebook } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 
 export default function Hero() {
 
     return (
         <>
-            <div className="bg-grid-fade flex flex-col justify-center items-center py-16 px-4 lg:px-8 ">
-                <h1 className="text-3xl md:text-7xl font-bold text-center text-black max-w-4xl md:max-w-6xl">
+            <div className="bg-grid-fade flex flex-col justify-center items-center py-16 px-4 lg:px-8">
+                <h1 className="text-3xl sm:text-4xl md:text-7xl  font-bold text-center text-black max-w-4xl md:max-w-6xl">
                     Download Videos From Any Social Media Instantly
                 </h1>
 
-                <p className="mt-6 text-lg md:text-xl text-center text-gray-600 max-w-2xl">
+                <p className="mt-6 text-md md:text-xl text-center text-gray-600 max-w-2xl">
                     Download videos from any social media platform in high quality. Just paste the link and download instantly.
                 </p>
 
@@ -65,12 +70,62 @@ export default function Hero() {
                 </div>
 
                 {/* Platform icons */}
-                        <div className="flex gap-6 mt-6 text-3xl text-gray-700">
-                        <AiFillTikTok className="hover:text-black transition-colors cursor-pointer" />
-                        <FaYoutube className="hover:text-red-600 transition-colors cursor-pointer" />
-                        <FaInstagram className="hover:text-pink-600 transition-colors cursor-pointer" />
-                        <FaSquareXTwitter className="hover:text-black transition-colors cursor-pointer" />
-                        </div>
+                <div className="flex gap-6 mt-6 text-3xl text-gray-700">
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div className="hover:text-black transition-all cursor-pointer hover:scale-110">
+                                <AiFillTikTok />
+                            </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>TikTok</p>
+                        </TooltipContent>
+                    </Tooltip>
+
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div className="hover:text-red-600 transition-all cursor-pointer hover:scale-110">
+                                <FaYoutube />
+                            </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>YouTube</p>
+                        </TooltipContent>
+                    </Tooltip>
+
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div className="hover:text-pink-600 transition-all cursor-pointer hover:scale-110">
+                                <FaInstagram />
+                            </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Instagram</p>
+                        </TooltipContent>
+                    </Tooltip>
+
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div className="hover:text-blue-600 transition-all cursor-pointer hover:scale-110">
+                                <FaFacebook />
+                            </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Facebook</p>
+                        </TooltipContent>
+                    </Tooltip>
+
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div className="hover:text-black transition-all cursor-pointer hover:scale-110">
+                                <FaSquareXTwitter />
+                            </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Twitter</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </div>
             </div>
         </>
     )

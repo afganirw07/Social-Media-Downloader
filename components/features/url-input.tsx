@@ -25,7 +25,7 @@ export function InputInputGroup() {
     return (
         <div className="w-full max-w-xl mx-auto space-y-3">
             <Field>
-                <InputGroup className="h-15 px-4 rounded-xl border border-gray-300 bg-white focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-100 transition-all overflow-hidden">
+                <InputGroup className="h-15 px-2 md:px-4 rounded-xl border border-gray-300 bg-white focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-100 transition-all overflow-hidden">
 
                     <InputGroupInput
                         id="input-group-url"
