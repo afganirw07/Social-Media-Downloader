@@ -56,9 +56,9 @@ export default function Testimonials() {
   ]
 
   return (
-    <div className="py-20 px-4 relative z-10">
+    <div className="bg-grid-fade py-20 px-4 relative z-10">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,36 +67,13 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="flex justify-center mb-4">
-            <Quote className="w-12 h-12 text-blue-600" />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Loved by Thousands
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            See what our users are saying about their experience
-          </p>
-        </motion.div>
-
-        {/* Stats Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-8 mb-16 py-8 bg-linear-to-b from-blue-50 to-purple-50 rounded-2xl"
-        >
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">4.9/5</div>
-            <div className="text-sm text-gray-600">Average Rating</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">10K+</div>
-            <div className="text-sm text-gray-600">Reviews</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">98%</div>
-            <div className="text-sm text-gray-600">Would Recommend</div>
+          <div className="flex justify-center items-center flex-col">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold text-center text-black max-w-4xl md:max-w-6xl">
+              Loved by Thousands
+            </h2>
+            <p className="mt-6 text-md md:text-xl text-center text-gray-600 max-w-2xl">
+              See what our users are saying about their experience
+            </p>
           </div>
         </motion.div>
 
@@ -117,22 +94,6 @@ export default function Testimonials() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-gray-600 mb-6">
-            Join thousands of happy users today
-          </p>
-          <button className="px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl">
-            Get Started for Free
-          </button>
-        </motion.div>
 
       </div>
     </div>
