@@ -33,8 +33,9 @@ export default function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg md:text-xl text-center text-gray-600 max-w-2xl leading-relaxed">
-            Download videos in 3 simple steps. <span className="text-black font-semibold">No registration required.</span>
+            Download videos in 3 simple steps. Login to start using your free daily credits.
           </p>
+
         </div>
 
         {/* Steps */}
