@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import TestimonialCard from "../landingpage/testimoni/testimonial-card"
-import { Quote } from "lucide-react"
 
 export default function Testimonials() {
   const testimonials = [
