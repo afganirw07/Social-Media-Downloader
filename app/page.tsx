@@ -28,10 +28,10 @@ export default function Home() {
           <Features />
         </section>
 
-      {/* PLATFORMS */}
+      {/* PLATFORMS
       <section className="relative z-10 min-h-screen">
         <Platforms/>
-      </section>
+      </section> */}
 
       {/* PRICING */}
       <section className="relative z-10 min-h-screen">
