@@ -1,4 +1,4 @@
-import { InputInputGroup } from "../input";
+import { InputInputGroup } from "../features/url-input";
 import { AiFillTikTok } from "react-icons/ai";
 import { FaYoutube, FaInstagram, } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
@@ -60,17 +60,17 @@ export default function Hero() {
 
                     {/* link */}
                     <div className="w-full max-w-xl mt-4">
-                        <InputInputGroup/>
+                        <InputInputGroup />
                     </div>
                 </div>
 
                 {/* Platform icons */}
-                        <div className="flex gap-6 mt-6 text-3xl text-gray-700">
-                        <AiFillTikTok className="hover:text-black transition-colors cursor-pointer" />
-                        <FaYoutube className="hover:text-red-600 transition-colors cursor-pointer" />
-                        <FaInstagram className="hover:text-pink-600 transition-colors cursor-pointer" />
-                        <FaSquareXTwitter className="hover:text-black transition-colors cursor-pointer" />
-                        </div>
+                <div className="flex gap-6 mt-6 text-3xl text-gray-700">
+                    <AiFillTikTok className="hover:text-black transition-colors cursor-pointer" />
+                    <FaYoutube className="hover:text-red-600 transition-colors cursor-pointer" />
+                    <FaInstagram className="hover:text-pink-600 transition-colors cursor-pointer" />
+                    <FaSquareXTwitter className="hover:text-black transition-colors cursor-pointer" />
+                </div>
             </div>
         </>
     )
