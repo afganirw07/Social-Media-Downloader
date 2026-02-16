@@ -2,6 +2,8 @@ import Hero from "@/components/sections/hero";
 import Features from "@/components/sections/feature";
 import HowItWorks from "@/components/sections/how-it-works";
 import Platforms from "@/components/sections/platform";
+import Pricing from "@/components/sections/pricing";
+import Testimonials from "@/components/sections/testi";
 
 
 export default function Home() {
@@ -24,11 +26,21 @@ export default function Home() {
           <Features />
         </section>
 
-        {/* PLATFORMS */}
-        <section className="relative z-10 min-h-screen">
-          <Platforms />
-        </section>
-      </div>
+      {/* PLATFORMS */}
+      <section className="relative z-10 min-h-screen">
+        <Platforms/>
+      </section>
+
+      {/* PRICING */}
+      <section className="relative z-10 min-h-screen">
+        <Pricing/>
+      </section>
+
+      {/* PRICING */}
+      <section className="relative z-10 min-h-screen">
+        <Testimonials/>
+      </section>
+</div>
     </>
   );
 }
