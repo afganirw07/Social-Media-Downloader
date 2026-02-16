@@ -57,7 +57,7 @@ export default function FAQ() {
   ]
 
   return (
-    <div className="w-full px-4 relative z-10">
+    <div className="bg-grid-fade w-full px-4 mt-60 relative z-10">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
@@ -105,26 +105,7 @@ export default function FAQ() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <p className="text-gray-600 mb-4 mt-12">Still have questions?</p>
-          <button className="px-8 py-3 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
-            Contact Support
-          </button>
-        </motion.div>
-
       </div>
     </div>
   )
 }
-
-// Row 1: [Wide Card    ] [Tall ]
-// Row 2: [Normal][Normal][Tall ]  
-// Row 3: [Wide Card    ] [Normal]
-// Row 4: [Normal][Tall ] [Normal]

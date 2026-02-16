@@ -62,7 +62,7 @@ export default function TestimonialCard({
             </div>
             {platform && (
               <div className="ml-auto">
-                <span className="text-[10px] px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full font-medium border border-blue-100">
+                <span className="text-[10px] px-2 py-0.5 bg-blue-50  rounded-full font-medium border border-blue-100">
                   {platform}
                 </span>
               </div>
