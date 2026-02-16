@@ -86,13 +86,13 @@ export default function Features() {
             return (
               <Card
                 key={index}
-                className="p-6 border rounded-2xl border-gray-200 bg-amber-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="p-6 border rounded-2xl border-gray-200 bg-[#FEFEFE] hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <CardHeader className="flex flex-col items-start gap-4 p-0 mb-4">
 
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-gray-900" strokeWidth={1.8} />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[#be185d]">
+                    <Icon className="w-6 h-6 text-black" strokeWidth={1.8} />
                   </div>
 
                   {/* Title */}

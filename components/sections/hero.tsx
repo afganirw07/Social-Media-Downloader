@@ -39,7 +39,7 @@ export default function Hero() {
 
             <div className="mt-10 flex flex-wrap justify-center gap-3">
                 {FEATURES_DATA.map((feature) => (
-                    <FeatureBadge key={feature.title} {...feature} />
+                    <FeatureBadge key={feature.title} {...feature} svgPath=""/>
                 ))}
 
                 <div className="w-full max-w-xl mt-4">
