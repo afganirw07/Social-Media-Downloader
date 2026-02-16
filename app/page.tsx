@@ -6,6 +6,7 @@ import Pricing from "@/components/sections/pricing";
 import Testimonials from "@/components/sections/testi";
 import FAQ from "@/components/sections/faq";
 import Footer from "@/components/sections/footer";
+import { NavbarDemo } from "@/components/sections/navbar";
 
 
 export default function Home() {
@@ -13,8 +14,10 @@ export default function Home() {
     <>
       <div className="min-h-screen w-full relative">
 
+        <NavbarDemo/>
+
         {/* HERO */}
-        <section className="relative z-0 min-h-screen">
+        <section id="#" className="relative z-0 min-h-screen">
           <Hero />
         </section>
 
@@ -24,7 +27,7 @@ export default function Home() {
         </section>
 
         {/* FEATURES */}
-        <section className="relative z-10 min-h-screen">
+        <section id="features " className="relative z-10 min-h-screen">
           <Features />
         </section>
 
@@ -34,7 +37,7 @@ export default function Home() {
       </section> */}
 
       {/* PRICING */}
-      <section className="relative z-10 min-h-screen">
+      <section id="pricing" className="relative z-10 min-h-screen">
         <Pricing/>
       </section>
 
@@ -47,7 +50,7 @@ export default function Home() {
       <section className="relative z-10 min-h-screen">
         <FAQ/>
       </section>
-      <section className="mt-4">
+      <section id="contact" className="mt-4">
       <Footer/>
       </section>
 </div>
