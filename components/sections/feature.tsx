@@ -1,5 +1,15 @@
-import { Download, Zap, Shield, Sparkles, CreditCard, Clock, Smartphone, History } from "lucide-react"
-import FeatureCard from "@/components/landingpage/features/features-card"
+import {
+  Download,
+  Zap,
+  Shield,
+  Sparkles,
+  CreditCard,
+  Clock,
+  Smartphone,
+  History
+} from "lucide-react"
+
+import { Card, CardHeader, CardBody } from "@heroui/card"
 
 export default function Features() {
 
@@ -71,14 +81,35 @@ export default function Features() {
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {mainFeatures.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
+          {mainFeatures.map((feature, index) => {
+            const Icon = feature.icon
+            return (
+              <Card
+                key={index}
+                className="p-6 border rounded-2xl border-gray-200 bg-amber-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <CardHeader className="flex flex-col items-start gap-4 p-0 mb-4">
+
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center">
+                    <Icon className="w-6 h-6 text-gray-900" strokeWidth={1.8} />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {feature.title}
+                  </h3>
+
+                </CardHeader>
+
+                <CardBody className="p-0">
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </CardBody>
+              </Card>
+            )
+          })}
         </div>
 
       </div>
