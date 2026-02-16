@@ -24,21 +24,21 @@ export default function HowItWorks() {
   ]
 
   return (
-    <div className="py-20 px-4 relative z-10">
+    <div className="bg-grid-fade px-4 relative z-10">
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="flex justify-center items-center flex-col text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-center text-gray-900 max-w-4xl tracking-tight mb-6">
             How It Works
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Download videos in 3 simple steps. No registration required.
+          <p className="text-lg md:text-xl text-center text-gray-600 max-w-2xl leading-relaxed">
+            Download videos in 3 simple steps. <span className="text-black font-semibold">No registration required.</span>
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-12 lg:gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-20">
           {steps.map((step) => (
             <StepCard
               key={step.number}
@@ -53,14 +53,11 @@ export default function HowItWorks() {
         {/* CTA */}
         <div className="text-center">
           <a href="#home"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-bold rounded-2xl hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
           >
-            <Download className="w-5 h-5" />
+            <Download className="w-6 h-6" />
             Start Downloading Now
           </a>
-          <p className="text-sm text-gray-500 mt-4">
-            Free forever • No credit card required
-          </p>
         </div>
 
       </div>

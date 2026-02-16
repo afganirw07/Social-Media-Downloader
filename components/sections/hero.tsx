@@ -73,8 +73,8 @@ export default function Hero() {
                 <div className="flex gap-6 mt-6 text-3xl text-gray-700">
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <div className="hover:text-black transition-all cursor-pointer hover:scale-110">
-                                <AiFillTikTok />
+                            <div className="text-black transition-all cursor-pointer hover:scale-110">
+                                <AiFillTikTok className="w-10 h-10" />
                             </div>
                         </TooltipTrigger>
                         <TooltipContent>
@@ -84,8 +84,8 @@ export default function Hero() {
 
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <div className="hover:text-red-600 transition-all cursor-pointer hover:scale-110">
-                                <FaYoutube />
+                            <div className="text-red-600 transition-all cursor-pointer hover:scale-110">
+                                <FaYoutube className="w-10 h-10"/>
                             </div>
                         </TooltipTrigger>
                         <TooltipContent>
@@ -95,8 +95,8 @@ export default function Hero() {
 
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <div className="hover:text-pink-600 transition-all cursor-pointer hover:scale-110">
-                                <FaInstagram />
+                            <div className="text-pink-600 transition-all cursor-pointer hover:scale-110">
+                                <FaInstagram className="w-10 h-10"/>
                             </div>
                         </TooltipTrigger>
                         <TooltipContent>
@@ -106,8 +106,8 @@ export default function Hero() {
 
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <div className="hover:text-blue-600 transition-all cursor-pointer hover:scale-110">
-                                <FaFacebook />
+                            <div className="text-blue-600 transition-all cursor-pointer hover:scale-110">
+                                <FaFacebook className="w-10 h-10"/>
                             </div>
                         </TooltipTrigger>
                         <TooltipContent>
@@ -117,8 +117,8 @@ export default function Hero() {
 
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <div className="hover:text-black transition-all cursor-pointer hover:scale-110">
-                                <FaSquareXTwitter />
+                            <div className="text-black transition-all cursor-pointer hover:scale-110">
+                                <FaSquareXTwitter className="w-10 h-10"/>
                             </div>
                         </TooltipTrigger>
                         <TooltipContent>
