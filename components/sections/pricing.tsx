@@ -5,29 +5,31 @@ import { motion } from "framer-motion"
 
 export default function Pricing() {
   const freeFeatures = [
-    { text: "20 tokens per day", included: true },
-    { text: "Standard download speed", included: true },
-    { text: "All platforms supported", included: true },
-    { text: "HD quality downloads", included: true },
-    { text: "No watermark removal", included: false },
-    { text: "No batch download", included: false },
-    { text: "7 days history", included: true },
+    { text: "20 download tokens per day", included: true },
+    { text: "Standard processing speed", included: true },
+    { text: "All major platforms supported", included: true },
+    { text: "Watermark removal", included: true },
+    { text: "Up to 4K quality", included: false },
+    { text: "Batch downloads", included: false },
+    { text: "Unlimited download history", included: false },
   ]
+
 
   const premiumFeatures = [
-    { text: "Unlimited tokens", included: true },
-    { text: "Priority download speed", included: true },
-    { text: "All platforms supported", included: true },
-    { text: "4K quality downloads", included: true },
+    { text: "Unlimited download tokens", included: true },
+    { text: "Priority processing speed", included: true },
+    { text: "All major platforms supported", included: true },
+    { text: "Up to 4K quality", included: true },
     { text: "Watermark removal", included: true },
-    { text: "Batch download", included: true },
-    { text: "Forever history", included: true },
+    { text: "Batch downloads", included: true },
+    { text: "Unlimited download history", included: true },
   ]
 
+
   return (
-    <div className="w-full px-4 relative z-10 bg-grid-fade">
+    <div className="w-full px-4 py-10 relative z-10 bg-grid-fade">
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,17 +38,20 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Simple Pricing
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Start free, upgrade when you need more power. No hidden fees.
-          </p>
+          <div className="flex flex-col justify-center items-center">
+
+            <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold text-center text-black max-w-4xl md:max-w-6xl">
+              Simple Pricing
+            </h2>
+            <p className="mt-6 text-md md:text-xl text-center text-gray-600 max-w-2xl">
+              Start free, upgrade when you need more power. No hidden fees.
+            </p>
+          </div>
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-          
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12 ">
+
           {/* Free Plan */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -83,38 +88,7 @@ export default function Pricing() {
 
         </div>
 
-        {/* FAQ Mini */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <p className="text-sm text-gray-500 my-4">
-            No credit card required • Cancel anytime • 30-day money back guarantee
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600 mb-4">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Instant activation</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Secure payment</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>24/7 support</span>
-            </div>
-          </div>
-        </motion.div>
+
 
       </div>
     </div>
