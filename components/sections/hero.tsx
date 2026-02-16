@@ -8,19 +8,17 @@ import {
 
 interface BadgeProps {
     title: string;
+    icon: any;
     iconColor: string;
     bgColor: string;
     borderColor: string;
     gradientColor: string;
-    svgPath: string;
 }
 
-const FeatureBadge = ({ title, iconColor, bgColor, borderColor, gradientColor, svgPath }: BadgeProps) => (
+const FeatureBadge = ({ title, icon: Icon, iconColor, bgColor, borderColor, gradientColor }: BadgeProps) => (
     <div className={`group relative flex items-center gap-2 rounded-full border ${borderColor} bg-linear-to-r ${gradientColor} to-transparent px-5 py-2.5 text-sm font-medium text-black shadow-lg transition-all duration-300`}>
         <div className={`flex h-6 w-6 items-center justify-center rounded-full ${bgColor}`}>
-            <svg className={`h-4 w-4 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={svgPath} />
-            </svg>
+            <Icon className={`h-4 w-4 ${iconColor}`} />
         </div>
         <span>{title}</span>
     </div>
@@ -39,7 +37,8 @@ export default function Hero() {
 
             <div className="mt-10 flex flex-wrap justify-center gap-3">
                 {FEATURES_DATA.map((feature) => (
-                    <FeatureBadge key={feature.title} {...feature} svgPath=""/>
+                    <FeatureBadge key={feature.title} {...feature} 
+                    />
                 ))}
 
                 <div className="w-full max-w-xl mt-4">

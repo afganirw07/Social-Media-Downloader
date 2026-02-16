@@ -11,12 +11,12 @@ export default function StepCard({ number, title, description, icon }: StepCardP
         </div>
 
         {/* Icon */}
-        <div className="w-20 h-20 mb-4 text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300">
+        <div className="w-20 h-20 mb-4 transition-colors duration-300">
           {icon}
         </div>
 
         {/* Content */}
-        <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
+        <h3 className="text-xl font-semibold text-gray-900 mb-3">
           {title}
         </h3>
         <p className="text-gray-600">

@@ -2,6 +2,7 @@ import { AiFillTikTok } from "react-icons/ai";
 import { FaYoutube, FaInstagram, FaFacebook } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
+
 export const PLATFORMS = [
     {
         id: "tiktok",
