@@ -7,8 +7,10 @@ import {
     InputGroupInput,
 } from "@/components/ui/input-group"
 import { ArrowRight } from "lucide-react"
+import { useRouter } from 'next/navigation'
 
 export function InputInputGroup() {
+    const router = useRouter()
     const handlePaste = async () => {
         try {
             const text = await navigator.clipboard.readText()
@@ -20,6 +22,10 @@ export function InputInputGroup() {
         } catch (err) {
             console.error("Failed to read clipboard:", err)
         }
+    }
+
+    const toLogin = () => {
+        router.push("/signin")
     }
 
     return (
@@ -44,6 +50,7 @@ export function InputInputGroup() {
 
                         <button
                             type="submit"
+                            onClick={toLogin}
                             className="group flex items-center cursor-pointer  gap-2 px-4 h-10 bg-black hover:bg-gray-900 text-white text-sm font-medium rounded-lg transition-colors ">
                             Download
                             <div className="transition-transform duration-300 group-hover:translate-x-1">

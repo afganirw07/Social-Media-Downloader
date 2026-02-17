@@ -1,5 +1,6 @@
 import { Check, X } from "lucide-react"
 import { cn } from "lib/utils"
+import { useRouter } from "next/navigation"
 
 interface PricingFeature {
   text: string
@@ -25,6 +26,11 @@ export default function PricingCard({
   isPremium = false,
   badge
 }: PricingCardProps) {
+  const router = useRouter()
+
+  const toLogin = () => {
+    router.push("/signin")
+  }
   return (
     <div className={cn(
       "relative rounded-2xl p-8 transition-all duration-300",
@@ -97,7 +103,7 @@ export default function PricingCard({
         ))}
       </div>
 
-      <button className={cn(
+      <button onClick={toLogin} className={cn(
         "w-full py-3 px-6 cursor-pointer font-bold rounded-xl transition-all duration-300",
         isPremium
           ? "bg-white text-black hover:bg-gray-50 shadow-lg hover:shadow-xl"

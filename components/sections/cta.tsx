@@ -25,7 +25,7 @@ export function CTA() {
 
                         {/* Primary */}
                         <Link
-                            href="/login"
+                            href="/signup"
                             className="px-8 py-4 rounded-xl bg-black text-white font-semibold text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
                             Get Started Free
@@ -33,7 +33,7 @@ export function CTA() {
 
                         {/* Secondary */}
                         <Link
-                            href="/pricing"
+                            href="/signin"
                             className="px-8 py-4 rounded-xl border border-gray-300 text-gray-900 font-semibold text-lg hover:border-black hover:bg-gray-50 transition-all duration-300"
                         >
                             View Pricing
