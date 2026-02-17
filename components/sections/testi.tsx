@@ -55,7 +55,7 @@ export default function Testimonials() {
   ]
 
   return (
-    <div className="bg-grid-fade py-20 px-4 relative z-10">
+    <div className="py-20 px-4 relative z-10">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

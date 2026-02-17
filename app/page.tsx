@@ -51,10 +51,10 @@ export default function Home() {
         <FAQ/>
       </section>
 
-      {/* CTA */}
+      {/* CTA
       <section className="relative z-10 min-h-screen">
         <CTASection/>
-      </section>
+      </section> */}
 
       <section id="contact">
       <Footer/>

@@ -26,7 +26,7 @@ const FeatureBadge = ({ title, icon: Icon, iconColor, bgColor, borderColor, grad
 
 export default function Hero() {
     return (
-        <section className="bg-grid-fade flex flex-col justify-center items-center py-16 px-4 lg:px-8">
+        <section className="mt-16 flex flex-col justify-center items-center py-16 px-4 lg:px-8">
             <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-center text-black max-w-4xl md:max-w-6xl">
                 Download Videos From Any Social Media Instantly
             </h1>

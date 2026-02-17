@@ -27,7 +27,7 @@ export default function Pricing() {
 
 
   return (
-    <div className="w-full px-4 py-10 relative z-10 bg-grid-fade">
+    <div className="w-full px-4 py-10 relative z-10">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}

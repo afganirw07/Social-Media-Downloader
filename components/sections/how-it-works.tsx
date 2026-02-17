@@ -25,7 +25,7 @@ export default function HowItWorks() {
   ]
 
   return (
-    <div className="bg-grid-fade px-4 relative z-10">
+    <div className="px-4 relative z-10">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
