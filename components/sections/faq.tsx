@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardHeader, CardBody } from "@heroui/card"
 
 export default function FAQ() {
   const faqs = [
@@ -104,22 +103,14 @@ export default function FAQ() {
               viewport={{ once: true }}
               className={faq.gridArea}
             >
-              <Card
-                className="h-full bg-white/70 backdrop-blur-sm border border-gray-200 hover:border-gray-100 transition-all duration-300 hover:shadow-xl hover:shadow-gray-500/10 group rounded-3xl"
-                isHoverable
-                shadow="sm"
-              >
-                <CardHeader className="p-6 pb-0">
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">
-                    {faq.question}
-                  </h3>
-                </CardHeader>
-                <CardBody className="p-6 pt-3">
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </CardBody>
-              </Card>
+              <div className="h-full p-6 rounded-2xl bg-white border border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group flex flex-col">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
