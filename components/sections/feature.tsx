@@ -91,7 +91,7 @@ export default function Features() {
                 <CardHeader className="flex flex-col items-start gap-4 p-0 mb-4">
 
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[#be185d]">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gray-50">
                     <Icon className="w-6 h-6 text-black" strokeWidth={1.8} />
                   </div>
 

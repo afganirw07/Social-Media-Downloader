@@ -1,60 +1,72 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Card, CardHeader, CardBody } from "@heroui/card"
 
 export default function FAQ() {
   const faqs = [
     {
-      question: "Is this service really free?",
-      answer: "Yes! Our free plan gives you 20 tokens per day to download videos from any supported platform. No credit card required.",
-      gridArea: "lg:col-span-2" // wide
+      question: "Is the service really free?",
+      answer:
+        "Yes. The Free plan gives you 20 download tokens per day with no credit card required. You can upgrade anytime for unlimited downloads.",
+      gridArea: "lg:col-span-2",
     },
     {
-      question: "Which platforms?",
-      answer: "We support TikTok, YouTube, Instagram, Facebook, Twitter, Reddit, and many more.",
-      gridArea: "lg:row-span-2" // tall
+      question: "What platforms are supported?",
+      answer:
+        "We support major platforms including TikTok, YouTube, Instagram, Facebook, Twitter (X), and more.",
+      gridArea: "lg:row-span-2",
     },
     {
-      question: "Install software?",
-      answer: "No installation needed! Completely web-based.",
-      gridArea: "" // normal
+      question: "Do I need to install any software?",
+      answer:
+        "No installation is required. Everything works directly in your browser.",
+      gridArea: "",
     },
     {
-      question: "Watermarks?",
-      answer: "Free users get videos as they appear. Premium removes watermarks.",
-      gridArea: "" // normal
+      question: "Are watermarks removed?",
+      answer:
+        "Yes. Videos are processed without added watermarks on both Free and Premium plans.",
+      gridArea: "",
     },
     {
-      question: "Download quality?",
-      answer: "Free: HD (1080p). Premium: Up to 4K quality with multiple options available.",
-      gridArea: "lg:col-span-2" // wide
+      question: "What download quality is available?",
+      answer:
+        "Both Free and Premium users can download videos in high quality, depending on availability from the source platform.",
+      gridArea: "lg:col-span-2",
     },
     {
-      question: "Daily limit?",
-      answer: "Free: 20 tokens/day. Premium: Unlimited downloads.",
-      gridArea: "" // normal
+      question: "Is there a daily download limit?",
+      answer:
+        "Free accounts receive 20 tokens per day. Premium accounts have unlimited downloads with no daily limits.",
+      gridArea: "",
     },
     {
-      question: "Safe and legal?",
-      answer: "Our service is safe and secure. You're responsible for respecting copyright and creator rights.",
-      gridArea: "lg:row-span-2" // tall
+      question: "Is it safe and legal to use?",
+      answer:
+        "Our platform is secure and processes videos in real-time. Users are responsible for respecting copyright and content ownership laws.",
+      gridArea: "lg:row-span-2",
     },
     {
-      question: "Private videos?",
-      answer: "Only publicly accessible videos can be downloaded.",
-      gridArea: "" // normal
+      question: "Can I download private videos?",
+      answer:
+        "No. Only publicly accessible videos can be processed and downloaded.",
+      gridArea: "",
     },
     {
-      question: "Cancel subscription?",
-      answer: "Cancel anytime from settings. Premium active until billing period ends.",
-      gridArea: "" // normal
+      question: "Can I cancel my Premium subscription anytime?",
+      answer:
+        "Yes. You can cancel anytime from your account settings. Your Premium access remains active until the end of the billing period.",
+      gridArea: "",
     },
     {
-      question: "Store videos?",
-      answer: "No, we don't store videos. Processed in real-time.",
-      gridArea: "" // normal
+      question: "Do you store downloaded videos?",
+      answer:
+        "No. We do not store videos on our servers. All processing happens in real-time.",
+      gridArea: "",
     },
   ]
+
 
   return (
     <div className="w-full py-20 px-4 relative z-10">
@@ -68,15 +80,14 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-gray-600 text-lg max-w-2xl">
-            We are here to help you with any questions you may have. Contact us at{" "}
-            <a href="mailto:support@viddl.com" className="text-blue-600 hover:text-blue-700 transition-colors font-medium">
-              support@viddl.com
-            </a>
-          </p>
+          <div className="flex justify-center items-center flex-col text-center">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 max-w-4xl tracking-tight mb-6">
+              Everything You Need to Know
+            </h2>
+            <p className="mt-2 text-md md:text-xl text-gray-600 max-w-2xl">
+              Find answers about downloads, tokens, quality, and how our Free and Premium plans work.
+            </p>
+          </div>
         </motion.div>
 
         {/* Bento Grid Layout */}
@@ -93,14 +104,22 @@ export default function FAQ() {
               viewport={{ once: true }}
               className={faq.gridArea}
             >
-              <div className="h-full p-6 rounded-2xl bg-white border border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group flex flex-col">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
+              <Card
+                className="h-full bg-white/70 backdrop-blur-sm border border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group rounded-3xl"
+                isHoverable
+                shadow="sm"
+              >
+                <CardHeader className="p-6 pb-0">
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    {faq.question}
+                  </h3>
+                </CardHeader>
+                <CardBody className="p-6 pt-3">
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </CardBody>
+              </Card>
             </motion.div>
           ))}
         </div>

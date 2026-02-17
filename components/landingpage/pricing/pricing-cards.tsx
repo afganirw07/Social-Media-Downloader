@@ -98,9 +98,9 @@ export default function PricingCard({
       </div>
 
       <button className={cn(
-        "w-full py-3 px-6 font-bold rounded-xl transition-all duration-300",
+        "w-full py-3 px-6 cursor-pointer font-bold rounded-xl transition-all duration-300",
         isPremium
-          ? "bg-white text-black hover:bg-blue-50 shadow-lg hover:shadow-xl"
+          ? "bg-white text-black hover:bg-gray-50 shadow-lg hover:shadow-xl"
           : "border-2 border-gray-300 text-gray-700 hover:bg-gray-50"
       )}>
         {isPremium ? "Upgrade Now" : "Get Started"}

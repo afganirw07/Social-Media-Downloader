@@ -25,7 +25,7 @@ export default function TestimonialCard({
       transition={{ duration: 0.3 }}
     >
       <Card
-        className="bg-white/70 backdrop-blur-sm border border-gray-200 hover:border-blue-300 transition-all duration-300 shadow-sm hover:shadow-xl rounded-3xl"
+        className="bg-white/70 backdrop-blur-sm border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-xl rounded-3xl"
         isHoverable
       >
         <CardHeader className="flex flex-col items-start gap-4 p-6 pb-0">
@@ -53,7 +53,7 @@ export default function TestimonialCard({
 
           {/* User Info */}
           <div className="flex items-center gap-3 mt-8 border-t border-gray-100 pt-6">
-            <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-10 h-10 rounded-full bg-linear-to-br bg-gray-900 flex items-center justify-center text-white font-bold text-sm">
               {avatar}
             </div>
             <div className="flex-1 min-w-0">
@@ -62,7 +62,7 @@ export default function TestimonialCard({
             </div>
             {platform && (
               <div className="ml-auto">
-                <span className="text-[10px] px-2 py-0.5 bg-blue-50  rounded-full font-medium border border-blue-100">
+                <span className="text-[10px] px-2 py-0.5 bg-blue-50  rounded-full font-medium border">
                   {platform}
                 </span>
               </div>
