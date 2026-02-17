@@ -7,20 +7,20 @@ export default function HowItWorks() {
       number: "1",
       title: "Paste URL",
       description: "Copy the video link from any social media platform and paste it into our input box",
-      icon: <Link2 className="w-full h-full text-[#be185d]" strokeWidth={1.5} />
+      icon: <Link2 className="w-full h-full text-gray-900" strokeWidth={1.5} />
     },
     {
       number: "2",
       title: "Click Download",
       description: "Our system instantly processes your video and prepares it for download in the best quality",
-      icon: <Download className="w-full h-full text-[#be185d]
+      icon: <Download className="w-full h-full text-gray-900
 " strokeWidth={1.5} />
     },
     {
       number: "3",
       title: "Enjoy Your Video",
       description: "Save the video to your device and enjoy it offline, anytime, anywhere. No watermarks!",
-      icon: <Sparkles className="w-full h-full text-[#be185d]" strokeWidth={1.5} />
+      icon: <Sparkles className="w-full h-full text-gray-900" strokeWidth={1.5} />
     }
   ]
 
