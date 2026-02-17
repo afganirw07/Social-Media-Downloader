@@ -105,12 +105,12 @@ export default function FAQ() {
               className={faq.gridArea}
             >
               <Card
-                className="h-full bg-white/70 backdrop-blur-sm border border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group rounded-3xl"
+                className="h-full bg-white/70 backdrop-blur-sm border border-gray-200 hover:border-gray-100 transition-all duration-300 hover:shadow-xl hover:shadow-gray-500/10 group rounded-3xl"
                 isHoverable
                 shadow="sm"
               >
                 <CardHeader className="p-6 pb-0">
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">
                     {faq.question}
                   </h3>
                 </CardHeader>

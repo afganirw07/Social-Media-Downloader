@@ -31,7 +31,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-black/95 border-t border-white/10 z-10 relative">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-11">
 
         {/* 4 Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -39,7 +39,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h2 className="text-2xl font-bold text-white mb-4">
-              VidDL
+              Vidly
             </h2>
             <p className="text-gray-400 text-sm leading-relaxed">
               Download videos from multiple platforms easily, fast, and secure.
@@ -71,7 +71,7 @@ export default function Footer() {
                 <li key={i}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition"
+                    className="text-gray-400 hover:text-gray-400 transition"
 
                   >
                     {link.name}
@@ -91,7 +91,7 @@ export default function Footer() {
                 <li key={i}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition"
+                    className="text-gray-400 hover:text-gray-400 transition"
                   >
                     {link.name}
                   </a>
@@ -110,7 +110,7 @@ export default function Footer() {
                 <li key={i}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition"
+                    className="text-gray-400 hover:text-gray-400 transition"
                   >
                     {link.name}
                   </a>
@@ -124,7 +124,7 @@ export default function Footer() {
         {/* Bottom Center Bar */}
         <div className="border-t border-white/10 mt-12 pt-6 text-center mb-2">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} VidDL. All rights reserved.
+            © {new Date().getFullYear()} Vidly. All rights reserved.
           </p>
         </div>
 
