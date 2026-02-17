@@ -6,7 +6,7 @@ import Testimonials from "@/components/sections/testi";
 import FAQ from "@/components/sections/faq";
 import Footer from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar";
-import CTASection from "@/components/sections/ctasection";
+import { CTA } from "@/components/sections/cta";
 
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <div className="min-h-screen w-full relative">
 
-        <NavbarDemo/>
+        <NavbarDemo />
 
         {/* HERO */}
         <section id="#" className="relative z-0 min-h-screen">
@@ -31,35 +31,36 @@ export default function Home() {
           <Features />
         </section>
 
-      {/* PLATFORMS
+        {/* PLATFORMS
       <section className="relative z-10 min-h-screen">
         <Platforms/>
       </section> */}
 
-      {/* PRICING */}
-      <section id="pricing" className="relative z-10 min-h-screen">
-        <Pricing/>
-      </section>
+        {/* PRICING */}
+        <section id="pricing" className="relative z-10 min-h-screen">
+          <Pricing />
+        </section>
 
         {/* TEstimonials */}
         <section className="relative z-10 min-h-screen">
           <Testimonials />
         </section>
 
-      {/* FAQ */}
-      <section className="relative z-10 min-h-screen">
-        <FAQ/>
-      </section>
+        {/* FAQ */}
+        <section className="relative z-10 min-h-screen">
+          <FAQ />
+        </section>
 
-      {/* CTA
-      <section className="relative z-10 min-h-screen">
-        <CTASection/>
-      </section> */}
+        {/* CTA */}
+        <section className="relative ">
+          <CTA />
+        </section>
 
-      <section id="contact">
-      <Footer/>
-      </section>
-</div>
+        <section id="contact">
+          <Footer />
+        </section>
+      </div>
     </>
   );
 }
+
