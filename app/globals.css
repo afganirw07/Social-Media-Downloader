@@ -55,8 +55,8 @@
     linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
   background-size: 40px 40px;
 }
-
 :root {
+  scroll-behavior: smooth;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

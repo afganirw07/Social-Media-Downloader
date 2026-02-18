@@ -11,21 +11,20 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
-import Link from "next/link";
 
 export function NavbarDemo() {
   const navItems = [
     {
-      name: "Features",
-      link: "#features",
+      name: "How It Works",
+      link: "#how-it-works",
     },
     {
       name: "Pricing",
       link: "#pricing",
     },
     {
-      name: "Contact",
-      link: "#contact",
+      name: "Testimonials",
+      link: "#testimonials",
     },
   ];
 
@@ -81,7 +80,7 @@ export function NavbarDemo() {
                 variant="primary"
                 className="w-full"
               >
-                Book a call
+                Register
               </NavbarButton>
             </div>
           </MobileNavMenu>

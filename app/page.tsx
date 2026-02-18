@@ -22,7 +22,7 @@ export default function Home() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="relative z-10 min-h-screen">
+        <section id="how-it-works" className="relative z-10 min-h-screen">
           <HowItWorks />
         </section>
 
@@ -31,18 +31,13 @@ export default function Home() {
           <Features />
         </section>
 
-        {/* PLATFORMS
-      <section className="relative z-10 min-h-screen">
-        <Platforms/>
-      </section> */}
-
         {/* PRICING */}
         <section id="pricing" className="relative z-10 min-h-screen">
           <Pricing />
         </section>
 
         {/* TEstimonials */}
-        <section className="relative z-10 min-h-screen">
+        <section id="testimonials" className="relative z-10 min-h-screen">
           <Testimonials />
         </section>
 
