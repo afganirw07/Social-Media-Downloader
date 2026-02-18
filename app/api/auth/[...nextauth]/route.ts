@@ -44,7 +44,8 @@ const handler = NextAuth({
     ],
 
     session: {
-        strategy: "jwt"
+        strategy: "jwt",
+        maxAge: 24 * 60 * 60 
     },
 
     callbacks: {
@@ -70,7 +71,7 @@ const handler = NextAuth({
 
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-        error: '/api/auth/error', // Optional: Define custom error page if needed
+        error: '/api/auth/error', 
     }
 
 })
