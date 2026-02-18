@@ -15,24 +15,63 @@ import {
   Field,
   FieldDescription,
   FieldGroup,
-  FieldLabel,
 } from "@/components/ui/field"
 
 import { InputOtp } from "@heroui/input-otp"
+import VerifyEmail from "@/types/VerifyEmail"
+import { useSearchParams } from "next/navigation";
+import { VerifyEmailServices, ResendOtpServices } from "@/services/User"
+import { useRouter } from "next/navigation";
+
 
 export default function OtpPage({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const [otp, setOtp] = useState<string>("")
+  const searchParams = useSearchParams();
+  const emailFromQuery = searchParams.get("email") || "";
+  const [data, setData] = useState<VerifyEmail>({
+    email: emailFromQuery,
+    otp: "",
+  })
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleVerify = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const router = useRouter();
 
-    console.log("OTP Entered:", otp)
-    
-    alert("OTP Verified")
+
+
+
+  const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      setIsLoading(true);
+      const res = await VerifyEmailServices(data);
+      setTimeout(() => {
+        router.push("/signin");
+      }, 2000);
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
   }
+
+  const handleResend = async () => {
+    try {
+      setIsLoading(true);
+
+      const res = await ResendOtpServices({
+        email: data.email,
+      });
+
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+
 
   return (
     <div
@@ -57,39 +96,36 @@ export default function OtpPage({
               <FieldGroup className="flex flex-col items-center gap-6">
 
                 <Field className="items-center">
-                  <FieldLabel>OTP Code</FieldLabel>
-
                   <InputOtp
                     length={6}
-                    value={otp}
-                    onValueChange={(value: string) => setOtp(value)}
                     className="items-center h-12 w-12 text-lg rounded-md gap-2"
+                    value={data.otp}
+                    onValueChange={(value) =>
+                      setData({ ...data, otp: value })
+                    }
                   />
 
-                  
-
-                  <FieldDescription className="text-center">
-                    Code expires in 02:00
-                  </FieldDescription>
                 </Field>
 
                 <Button
                   type="submit"
                   className="w-full"
-                  disabled={otp.length !== 6}
+                  disabled={isLoading}
                 >
-                  Verify Code
+                  {isLoading ? "Verifying..." : "Verify Code"}
                 </Button>
+
 
                 <FieldDescription className="text-center">
                   Didn’t receive the code?{" "}
                   <button
                     type="button"
                     className="font-semibold text-black hover:underline"
-                    onClick={() => alert("Resend OTP")}
+                    onClick={handleResend}
                   >
                     Resend
                   </button>
+
                 </FieldDescription>
 
                 <FieldDescription className="text-center">

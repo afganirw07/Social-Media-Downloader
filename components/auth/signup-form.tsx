@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input"
 import RegisterUser from "@/types/RegisterUser"
 import { useState } from "react"
 import { UserRegister } from "@/services/User"
+import { useRouter } from "next/navigation"
 
 export function SignupForm({
     className,
@@ -31,12 +32,17 @@ export function SignupForm({
     })
     const [isLoading, setIsLoading] = useState(false);
 
+    const router = useRouter();
+
 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             setIsLoading(true);
             const res = await UserRegister(data);
+            setTimeout(() => {
+                router.push(`/otp?email=${data.email}`);
+            }, 2000);
             console.log(res);
         } catch (error) {
             console.error(error);
