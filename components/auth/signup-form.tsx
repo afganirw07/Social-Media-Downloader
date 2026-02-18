@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -17,31 +16,36 @@ import {
     FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { useRouter } from "next/navigation"
+import RegisterUser from "@/types/RegisterUser"
+import { useState } from "react"
+import { UserRegister } from "@/services/User"
 
 export function SignupForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
-    const router = useRouter()
-    
-    const submit = async (e: React.FormEvent) => {
-        e.preventDefault()
+    const [data, setData] = useState<RegisterUser>({
+        email: "",
+        username: "",
+        password: "",
+    })
+    const [isLoading, setIsLoading] = useState(false);
 
-        const formData = new FormData(e.currentTarget as HTMLFormElement)
 
-        const data = {
-            username: formData.get("name"),
-            email: formData.get("email"),
-            password: formData.get("password")
+    const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            setIsLoading(true);
+            const res = await UserRegister(data);
+            console.log(res);
+        } catch (error) {
+            console.error(error);
+            throw error;
         }
-
-        console.log("Data Signup", data)
-
-        await fetch ("/api/register")
-
-        router.push("/(auth)/otp")
     }
+
+
+
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card>
@@ -52,31 +56,36 @@ export function SignupForm({
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form>
+                    <form onSubmit={handleRegister}>
                         <FieldGroup>
                             <Field>
                                 <FieldLabel htmlFor="name">Username</FieldLabel>
-                                <Input id="name" type="text" placeholder="John7" required />
+                                <Input id="username" type="text" required value={data.username} onChange={(e) => setData({ ...data, username: e.target.value })} />
                             </Field>
                             <Field>
                                 <FieldLabel htmlFor="email">Email</FieldLabel>
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="m@example.com"
                                     required
+                                    value={data.email}
+                                    onChange={(e) => setData({ ...data, email: e.target.value })}
                                 />
                             </Field>
                             <Field>
                                 <FieldLabel htmlFor="password">Password</FieldLabel>
-                                <Input id="password" type="password" required />
+                                <Input id="password" type="password" required value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
                                 <FieldDescription>
                                     Must be at least 8 characters long.
                                 </FieldDescription>
                             </Field>
                             <Field>
-                                <Button type="submit" className="w-full">
-                                    Create Account
+                                <Button
+                                    type="submit"
+                                    className="w-full"
+                                    disabled={isLoading}
+                                >
+                                    {isLoading ? "Creating..." : "Create Account"}
                                 </Button>
                                 <FieldDescription className="text-center mt-4">
                                     Already have an account? <Link href="/signin" className="font-semibold text-black hover:underline">Sign in</Link>
