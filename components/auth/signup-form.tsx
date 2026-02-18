@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -15,11 +17,31 @@ import {
     FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { useRouter } from "next/navigation"
 
 export function SignupForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
+    const router = useRouter()
+    
+    const submit = async (e: React.FormEvent) => {
+        e.preventDefault()
+
+        const formData = new FormData(e.currentTarget as HTMLFormElement)
+
+        const data = {
+            username: formData.get("name"),
+            email: formData.get("email"),
+            password: formData.get("password")
+        }
+
+        console.log("Data Signup", data)
+
+        await fetch ("/api/register")
+
+        router.push("/(auth)/otp")
+    }
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card>
