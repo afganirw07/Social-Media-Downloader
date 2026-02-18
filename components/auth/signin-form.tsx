@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -14,12 +15,39 @@ import {
     FieldGroup,
     FieldLabel,
 } from "@/components/ui/field"
+import { signIn } from "next-auth/react";
 import { Input } from "@/components/ui/input"
+import { useState } from "react"
+import Login from "@/types/Login"
+
 
 export function SigninForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
+    const [data, setData] = useState<Login>({
+        email: "",
+        password: "",
+    })
+        ;
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            setIsLoading(true);
+            const res = await signIn("credentials", {
+                redirect: false,
+                email: data.email,
+                password: data.password,    
+            })
+            console.log(res);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card>
@@ -30,7 +58,7 @@ export function SigninForm({
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <FieldGroup>
                             <Field>
                                 <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -39,6 +67,8 @@ export function SigninForm({
                                     type="email"
                                     placeholder="m@example.com"
                                     required
+                                    value={data.email}
+                                    onChange={(e) => setData({...data, email: e.target.value})}
                                 />
                             </Field>
                             <Field>
@@ -48,11 +78,11 @@ export function SigninForm({
                                         Forgot password?
                                     </a>
                                 </div>
-                                <Input id="password" type="password" required />
+                                <Input id="password" type="password" required value={data.password} onChange={(e) => setData({...data, password: e.target.value})} />
                             </Field>
                             <Field>
                                 <Button type="submit" className="w-full">
-                                    Login
+                                    {isLoading ? "Loading..." : "Login"}
                                 </Button>
                                 <FieldDescription className="text-center mt-4">
                                     Don&apos;t have an account? <Link href="/signup" className="font-semibold text-black hover:underline">Sign up</Link>
