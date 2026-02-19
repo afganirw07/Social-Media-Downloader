@@ -120,7 +120,7 @@ export default function OtpPage({
 
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full cursor-pointer"
                   disabled={isLoading}
                 >
                   {isLoading ? "Verifying..." : "Verify Code"}
@@ -131,7 +131,7 @@ export default function OtpPage({
                   Didn’t receive the code?{" "}
                   <button
                     type="button"
-                    className="font-semibold text-black hover:underline"
+                    className="font-semibold text-black cursor-pointer hover:underline"
                     onClick={handleResend}
                   >
                     Resend
