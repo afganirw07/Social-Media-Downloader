@@ -1,8 +1,12 @@
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+
 export async function Connect(path: string, options: RequestInit = {}) {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-    const token = typeof window !== "undefined"
-        ? cookieStore.get("token")
-        : null;
+
+    const session = await getServerSession(authOptions);
+    const token = session?.user.accessToken || "";
+    // console.log("====TOKEN====", token);
 
     const headers = {
         "Content-Type": "application/json",

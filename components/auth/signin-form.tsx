@@ -15,7 +15,7 @@ import {
     FieldGroup,
     FieldLabel,
 } from "@/components/ui/field"
-import { signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import Login from "@/types/Login"
@@ -31,27 +31,34 @@ export function SigninForm({
     })
         ;
     const [isLoading, setIsLoading] = useState(false);
-
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
         try {
             setIsLoading(true);
+
             const res = await signIn("credentials", {
                 redirect: false,
                 email: data.email,
-                password: data.password,    
-            })
+                password: data.password,
+            });
+
+            if (res?.ok) {
+                await getSession();
+            } else {
+                throw new Error(res?.error || "Login failed");
+            }
+
             toast.success("Logged in successfully");
-            setTimeout(() => {
-                window.location.href = "/homepage";
-            }, 2000);
-            console.log(res);
-            setIsLoading(false);
+
+
         } catch (error) {
-            toast.error("Error logging in");
+            toast.error("Invalid email or password");
             console.error(error);
+        } finally {
+            setIsLoading(false);
         }
-    }
+    };
 
 
     return (
@@ -73,7 +80,7 @@ export function SigninForm({
                                     type="email"
                                     required
                                     value={data.email}
-                                    onChange={(e) => setData({...data, email: e.target.value})}
+                                    onChange={(e) => setData({ ...data, email: e.target.value })}
                                 />
                             </Field>
                             <Field>
@@ -83,7 +90,7 @@ export function SigninForm({
                                         Forgot password?
                                     </a>
                                 </div>
-                                <Input id="password" type="password" required value={data.password} onChange={(e) => setData({...data, password: e.target.value})} />
+                                <Input id="password" type="password" required value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
                             </Field>
                             <Field>
                                 <Button type="submit" className="w-full">
