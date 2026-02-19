@@ -20,6 +20,7 @@ import RegisterUser from "@/types/RegisterUser"
 import { useState } from "react"
 import { UserRegister } from "@/services/User"
 import { useRouter } from "next/navigation"
+import { toast } from "sonner"
 
 export function SignupForm({
     className,
@@ -40,13 +41,16 @@ export function SignupForm({
         try {
             setIsLoading(true);
             const res = await UserRegister(data);
+            toast.success("Account created successfully");
             setTimeout(() => {
                 router.push(`/otp?email=${data.email}`);
             }, 2000);
             console.log(res);
+            setIsLoading(false);
         } catch (error) {
             console.error(error);
-            throw error;
+            setIsLoading(false);
+            toast.error("Error creating account");
         }
     }
 

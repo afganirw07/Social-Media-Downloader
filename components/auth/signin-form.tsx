@@ -19,7 +19,7 @@ import { signIn } from "next-auth/react";
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import Login from "@/types/Login"
-
+import { toast } from "sonner"
 
 export function SigninForm({
     className,
@@ -41,8 +41,14 @@ export function SigninForm({
                 email: data.email,
                 password: data.password,    
             })
+            toast.success("Logged in successfully");
+            setTimeout(() => {
+                window.location.href = "/homepage";
+            }, 2000);
             console.log(res);
+            setIsLoading(false);
         } catch (error) {
+            toast.error("Error logging in");
             console.error(error);
         }
     }
@@ -65,7 +71,6 @@ export function SigninForm({
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="m@example.com"
                                     required
                                     value={data.email}
                                     onChange={(e) => setData({...data, email: e.target.value})}

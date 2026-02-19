@@ -22,6 +22,7 @@ import VerifyEmail from "@/types/VerifyEmail"
 import { useSearchParams } from "next/navigation";
 import { VerifyEmailServices, ResendOtpServices } from "@/services/User"
 import { useRouter } from "next/navigation";
+import { toast } from "sonner"
 
 
 export default function OtpPage({
@@ -46,12 +47,16 @@ export default function OtpPage({
     try {
       setIsLoading(true);
       const res = await VerifyEmailServices(data);
+      toast.success("Verified successfully");
       setTimeout(() => {
         router.push("/signin");
       }, 2000);
       console.log(res);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
+      toast.error("Error verifying account");
     }
   }
 
