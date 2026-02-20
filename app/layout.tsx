@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
 import Providers from "./providers"
+import {HeroUIProvider} from "@heroui/system";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-grid-fade`}
       >
+        <HeroUIProvider>
+          {children}
+        </HeroUIProvider>
         <Providers>
           <Toaster position="top-center" />
           <TooltipProvider>
