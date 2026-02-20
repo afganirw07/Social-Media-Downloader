@@ -105,8 +105,14 @@ export default function OtpPage({
                     length={6}
                     className="items-center h-12 w-12 text-lg rounded-md gap-2"
                     value={data.otp}
+                    variant="bordered"
                     onValueChange={(value) =>
                       setData({ ...data, otp: value })
+                    }
+                    classNames={{
+                      segmentWrapper: "flex gap-1",
+                      segment: "py-3 border border-gray-300 rounded-md w-10 h-10 flex items-center justify-center",
+                    }
                     }
                   />
 
@@ -114,7 +120,7 @@ export default function OtpPage({
 
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full cursor-pointer"
                   disabled={isLoading}
                 >
                   {isLoading ? "Verifying..." : "Verify Code"}
@@ -125,7 +131,7 @@ export default function OtpPage({
                   Didn’t receive the code?{" "}
                   <button
                     type="button"
-                    className="font-semibold text-black hover:underline"
+                    className="font-semibold text-black cursor-pointer hover:underline"
                     onClick={handleResend}
                   >
                     Resend

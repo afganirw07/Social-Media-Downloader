@@ -41,6 +41,7 @@ export function SignupForm({
         try {
             setIsLoading(true);
             const res = await UserRegister(data);
+
             toast.success("Account created successfully");
             setTimeout(() => {
                 router.push(`/otp?email=${data.email}`);
