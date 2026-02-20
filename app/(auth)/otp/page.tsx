@@ -1,6 +1,7 @@
 import OtpPage from "@/components/auth/otp/input-otp"
 import Image from "next/image"
-export default function Page() {
+import { Suspense } from "react"
+export default function SignupPage() {
     return (
         <div className="bg-grid-fade flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
             <div className="flex w-full max-w-sm flex-col gap-6">
@@ -11,7 +12,9 @@ export default function Page() {
                     </div>
                     Vidly
                 </a>
-                <OtpPage />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <OtpPage />
+                </Suspense>
             </div>
         </div>
     )
