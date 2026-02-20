@@ -1,3 +1,4 @@
+import ForgotPasswordPage from "@/components/auth/forgotpassword/password"
 import OtpPage from "@/components/auth/otp/input-otp"
 import Image from "next/image"
 export default function Page() {
@@ -11,7 +12,7 @@ export default function Page() {
                     </div>
                     Vidly
                 </a>
-                <OtpPage />
+                <ForgotPasswordPage/>
             </div>
         </div>
     )
