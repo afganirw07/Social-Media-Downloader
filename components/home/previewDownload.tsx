@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody,  } from "@heroui/card"
+import { Card, CardHeader, CardBody, } from "@heroui/card"
 
 
 export default function PreviewDownload() {

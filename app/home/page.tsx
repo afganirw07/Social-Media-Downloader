@@ -4,7 +4,7 @@ import Footer from "@/components/sections/footer"
 
 export default function Homepage() {
     return (
-        <div>
+        <div className="flex flex-col gap-6">
             <HomepageSection />
             <PreviewDownload />
             <Footer />
