@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@plugin "../heroui-plugin.js";
 
 @custom-variant dark (&:is(.dark *));
 
