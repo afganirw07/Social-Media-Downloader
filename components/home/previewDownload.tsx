@@ -10,12 +10,10 @@ interface PreviewDownloadProps {
 export default function PreviewDownload({ previewData }: PreviewDownloadProps) {
   if (!previewData) return null
 
-  const { title, thumbnail, downloadUrl, videoUrl } = previewData
+  const videoUrl = typeof previewData === "string" ? previewData : previewData?.videoUrl
 
   const handleManualDownload = () => {
-    if (downloadUrl || videoUrl) {
-      window.open(downloadUrl || videoUrl, '_blank')
-    }
+    window.open(videoUrl, "_blank")
   }
 
   return (
@@ -24,13 +22,22 @@ export default function PreviewDownload({ previewData }: PreviewDownloadProps) {
         <CardBody className="p-0">
           <div className="p-8 pb-4">
             <div className="relative aspect-video bg-[#E0E0E0] rounded-sm flex items-center justify-center overflow-hidden">
-              {thumbnail ? (
-                <img src={thumbnail} alt={title || "Preview"} className="w-full h-full object-cover" />
+              {videoUrl ? (
+                <video
+                  src={videoUrl}
+                  controls
+                  controlsList="nodownload"
+                  onContextMenu={(e) => e.preventDefault()}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-contain"
+                />
               ) : (
-                <span className="text-2xl font-medium text-gray-800 tracking-tight">{title || "Preview"}</span>
+                <span className="text-2xl font-medium text-gray-800 tracking-tight">Preview</span>
               )}
             </div>
-            {title && <p className="mt-4 text-center font-medium text-gray-700">{title}</p>}
           </div>
 
           <div className="p-8 pt-4 pb-12">

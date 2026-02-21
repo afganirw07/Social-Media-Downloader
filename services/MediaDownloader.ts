@@ -1,6 +1,6 @@
 import { ClientConnect } from "@/lib/client-connect";
 
-const Connect = ClientConnect; 
+const Connect = ClientConnect;
 
 
 export const InstagramDownloader = async (data: { url: string, fileType: string, userId: string }) => {
@@ -9,7 +9,8 @@ export const InstagramDownloader = async (data: { url: string, fileType: string,
             method: "POST",
             body: JSON.stringify(data),
         });
-        return res;
+        const media = res.data.data.videoUrl;
+        return media;
     } catch (error) {
         console.error(error);
         throw error;
@@ -22,7 +23,9 @@ export const TikTokDownloader = async (data: { url: string, fileType: string, us
             method: "POST",
             body: JSON.stringify(data),
         });
-        return res;
+
+        const media = res.data.result.video.downloadAddr[0];
+        return media;
     } catch (error) {
         console.error(error);
         throw error;
@@ -35,7 +38,8 @@ export const FacebookDownloader = async (data: { url: string, fileType: string, 
             method: "POST",
             body: JSON.stringify(data),
         });
-        return res;
+        const media = res?.media?.data?.videoUrl;   
+        return media;
     } catch (error) {
         console.error(error);
         throw error;
@@ -48,7 +52,8 @@ export const TwitterDownloader = async (data: { url: string, fileType: string, u
             method: "POST",
             body: JSON.stringify(data),
         });
-        return res;
+        const media = res.data.info.url[0];
+        return media;
     } catch (error) {
         console.error(error);
         throw error;
@@ -61,7 +66,8 @@ export const YouTubeDownloader = async (data: { url: string, fileType: string, u
             method: "POST",
             body: JSON.stringify(data),
         });
-        return res;
+        const media = res.data.data.download.video;
+        return media;
     } catch (error) {
         console.error(error);
         throw error;
