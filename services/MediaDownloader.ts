@@ -1,0 +1,66 @@
+import { Connect } from "@/lib/connect";
+
+export const InstagramDownloader = async (data: { url: string, fileType: string, userId: string }) => {
+    try {
+        const res = await Connect("/api/instagram", {
+            method: "POST",
+            body: JSON.stringify(data),
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
+export const TikTokDownloader = async (data: { url: string, fileType: string, userId: string }) => {
+    try {
+        const res = await Connect("/api/tiktok", {
+            method: "POST",
+            body: JSON.stringify(data),
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
+export const FacebookDownloader = async (data: { url: string, fileType: string, userId: string }) => {
+    try {
+        const res = await Connect("/api/facebook", {
+            method: "POST",
+            body: JSON.stringify(data),
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
+export const TwitterDownloader = async (data: { url: string, fileType: string, userId: string }) => {
+    try {
+        const res = await Connect("/api/twitter", {
+            method: "POST",
+            body: JSON.stringify(data),
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
+export const YouTubeDownloader = async (data: { url: string, fileType: string, userId: string }) => {
+    try {
+        const res = await Connect("/api/youtube", {
+            method: "POST",
+            body: JSON.stringify(data),
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
