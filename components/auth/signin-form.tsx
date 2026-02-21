@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import Login from "@/types/Login"
 import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 export function SigninForm({
     className,
@@ -30,6 +31,7 @@ export function SigninForm({
         password: "",
     })
         ;
+    const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -50,6 +52,10 @@ export function SigninForm({
             }
 
             toast.success("Logged in successfully");
+            setTimeout(() => {
+                router.push("/home");
+            }, 2000);
+            console.log(res);
 
 
         } catch (error) {

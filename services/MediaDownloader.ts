@@ -1,4 +1,7 @@
-import { Connect } from "@/lib/connect";
+import { ClientConnect } from "@/lib/client-connect";
+
+const Connect = ClientConnect; 
+
 
 export const InstagramDownloader = async (data: { url: string, fileType: string, userId: string }) => {
     try {

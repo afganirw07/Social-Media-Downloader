@@ -8,9 +8,22 @@ import {
 } from "@/components/ui/input-group"
 import { ArrowRight } from "lucide-react"
 import { useRouter } from 'next/navigation'
+import { useSession } from "next-auth/react"
+import {
+    InstagramDownloader,
+    TikTokDownloader,
+    FacebookDownloader,
+    TwitterDownloader,
+    YouTubeDownloader
+} from "@/services/MediaDownloader"
 
-export function InputInputGroup() {
+interface InputInputGroupProps {
+    setPreviewData: (data: any) => void
+}
+
+export function InputInputGroup({ setPreviewData }: InputInputGroupProps) {
     const router = useRouter()
+    const { data: session } = useSession()
     const handlePaste = async () => {
         try {
             const text = await navigator.clipboard.readText()
@@ -26,6 +39,46 @@ export function InputInputGroup() {
 
     const toLogin = () => {
         router.push("/signin")
+    }
+
+    const handleDownload = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!session) {
+            toLogin()
+            return
+        }
+
+        const input = document.getElementById("input-group-url") as HTMLInputElement
+        const url = input?.value
+
+        if (!url) return
+
+        try {
+            let result;
+            if (url.includes("instagram.com")) {
+                result = await InstagramDownloader({ url, fileType: "mp4", userId: session.user.id })
+            } else if (url.includes("tiktok.com")) {
+                result = await TikTokDownloader({ url, fileType: "mp4", userId: session.user.id })
+            } else if (url.includes("facebook.com")) {
+                result = await FacebookDownloader({ url, fileType: "mp4", userId: session.user.id })
+            } else if (url.includes("twitter.com") || url.includes("x.com")) {
+                result = await TwitterDownloader({ url, fileType: "mp4", userId: session.user.id })
+            } else if (url.includes("youtube.com") || url.includes("youtu.be")) {
+                result = await YouTubeDownloader({ url, fileType: "mp4", userId: session.user.id })
+            } else {
+                alert("Platform not supported yet")
+                return
+            }
+
+            console.log("====RESULT====",result)
+
+            if (result) {
+                setPreviewData(result)
+            }
+        } catch (error) {
+            console.error("Download error:", error)
+            alert("Failed to fetch video data")
+        }
     }
 
     return (
@@ -50,7 +103,7 @@ export function InputInputGroup() {
 
                         <button
                             type="submit"
-                            onClick={toLogin}
+                            onClick={handleDownload}
                             className="group flex items-center cursor-pointer  gap-2 px-4 h-10 bg-black hover:bg-gray-900 text-white text-sm font-medium rounded-lg transition-colors ">
                             Download
                             <div className="transition-transform duration-300 group-hover:translate-x-1">

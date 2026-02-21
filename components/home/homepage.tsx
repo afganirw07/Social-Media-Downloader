@@ -24,7 +24,11 @@ const FeatureBadge = ({ title, icon: Icon, iconColor, bgColor, borderColor, grad
     </div>
 );
 
-export default function HomepageSection() {
+interface HomepageSectionProps {
+    setPreviewData: (data: any) => void
+}
+
+export default function HomepageSection({ setPreviewData }: HomepageSectionProps) {
     return (
         <section className="mt-16 flex flex-col justify-center items-center py-16 px-4 lg:px-8">
             <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-center text-black max-w-4xl md:max-w-6xl">
@@ -42,7 +46,7 @@ export default function HomepageSection() {
                 ))}
 
                 <div className="w-full max-w-xl mt-4">
-                    <InputInputGroup />
+                    <InputInputGroup setPreviewData={setPreviewData} />
                 </div>
             </div>
 
