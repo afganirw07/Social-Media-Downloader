@@ -1,13 +1,29 @@
-import ProfilePage from "@/components/home/profile"
-import FloatingNavDemo from "@/components/floating-navbar-demo"
-import { ParamsOf } from '../../.next/dev/types/routes';
+"use client"
 
-export default function Homepage() {
+import { useState } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
+import { mockUser } from "@/components/profile/mock"
+import ProfileLayout from "@/components/profile/profileLayout"
 
+export default function ProfilePage() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const tabFromUrl = searchParams.get("tab")
+
+  const [activeTab, setActiveTab] = useState<"account" | "history">(
+    tabFromUrl === "history" ? "history" : "account"
+  )
+
+  const handleTabChange = (tab: "account" | "history") => {
+    setActiveTab(tab)
+    router.push(`/profile?tab=${tab}`)
+  }
 
   return (
-    <div className="">
-        <ProfilePage/>
-    </div>
+    <ProfileLayout
+      user={mockUser}
+      activeTab={activeTab}
+      onTabChange={handleTabChange}
+    />
   )
 }
