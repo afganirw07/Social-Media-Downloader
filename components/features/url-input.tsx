@@ -16,6 +16,8 @@ import {
     TwitterDownloader,
     YouTubeDownloader
 } from "@/services/MediaDownloader"
+import { useState } from "react"
+import { toast } from "sonner"
 
 interface InputInputGroupProps {
     setPreviewData: (data: any) => void
@@ -23,6 +25,7 @@ interface InputInputGroupProps {
 
 export function InputInputGroup({ setPreviewData }: InputInputGroupProps) {
     const router = useRouter()
+    const [loading, setLoading] = useState(false)
     const { data: session } = useSession()
     const handlePaste = async () => {
         try {
@@ -54,6 +57,8 @@ export function InputInputGroup({ setPreviewData }: InputInputGroupProps) {
         if (!url) return
 
         try {
+            setLoading(true)
+            toast.success("Downloading...")
             let result;
             if (url.includes("instagram.com")) {
                 result = await InstagramDownloader({ url, fileType: "mp4", userId: session.user.id })
@@ -70,21 +75,23 @@ export function InputInputGroup({ setPreviewData }: InputInputGroupProps) {
                 return
             }
 
-            console.log("====RESULT====",result)
+            // console.log("====RESULT====",result)
 
             if (result) {
+                setLoading(false)
                 setPreviewData(result)
             }
         } catch (error) {
             console.error("Download error:", error)
-            alert("Failed to fetch video data")
+            setLoading(false)
+            toast.error("Failed to fetch video data")
         }
     }
 
     return (
         <div className="w-full max-w-xl mx-auto space-y-3">
             <Field>
-                <InputGroup className="h-15 px-2 md:px-4 rounded-xl border border-gray-300 bg-white focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-100 transition-all overflow-hidden">
+                <InputGroup className="h-15 px-2 md:px-4 rounded-xl border border-gray-300 bg-white focus-within:border-gray-500 focus-within:ring-4 focus-within:ring-gray-100 transition-all overflow-hidden">
 
                     <InputGroupInput
                         id="input-group-url"
@@ -105,7 +112,7 @@ export function InputInputGroup({ setPreviewData }: InputInputGroupProps) {
                             type="submit"
                             onClick={handleDownload}
                             className="group flex items-center cursor-pointer  gap-2 px-4 h-10 bg-black hover:bg-gray-900 text-white text-sm font-medium rounded-lg transition-colors ">
-                            Download
+                            {loading ? "Loading..." : "Download"}
                             <div className="transition-transform duration-300 group-hover:translate-x-1">
                                 <ArrowRight className="w-5 h-5" />
                             </div>
