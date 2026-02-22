@@ -21,7 +21,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     if (status === "unauthenticated") {
-      router.push("/auth/login")
+      router.push("/signin")
     } else if (status === "authenticated" && session?.user?.id) {
       const fetchData = async () => {
         try {
