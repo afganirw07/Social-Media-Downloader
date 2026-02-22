@@ -1,26 +1,34 @@
-// components/profile/mockData.ts
-
-export const mockUser = {
-  name: "Kalsah Alkautsar",
-  email: "kalsah@email.com",
-  isPremium: true,
-}
-
 export const historyData = [
-  {
-    id: 1,
-    title: "Funny Cat Compilation",
-    platform: "TikTok",
-    sizeMB: 72,
-    quality: "720p",
-    date: "12 Feb 2026",
-  },
-  {
-    id: 2,
-    title: "Instagram Travel Reel",
-    platform: "Instagram",
-    sizeMB: 128,
-    quality: "1080p",
-    date: "10 Feb 2026",
-  },
+    {
+        id: "1",
+        title: "Beautiful Sunset Landscape Video",
+        platform: "Instagram",
+        date: "2024-03-20",
+        quality: "1080p",
+        sizeMB: 15.4,
+    },
+    {
+        id: "2",
+        title: "Awesome TikTok Dance Viral",
+        platform: "TikTok",
+        date: "2024-03-19",
+        quality: "720p",
+        sizeMB: 8.2,
+    },
+    {
+        id: "3",
+        title: "Educational Tech Review",
+        platform: "YouTube",
+        date: "2024-03-18",
+        quality: "4K",
+        sizeMB: 124.5,
+    },
+    {
+        id: "4",
+        title: "Wholesome Cat Moments",
+        platform: "Twitter",
+        date: "2024-03-17",
+        quality: "720p",
+        sizeMB: 5.1,
+    },
 ]

@@ -99,7 +99,7 @@ export function SigninForm({
                                 <Input id="password" type="password" required value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
                             </Field>
                             <Field>
-                                <Button type="submit" className="w-full">
+                                <Button type="submit" className="w-full cursor-pointer">
                                     {isLoading ? "Loading..." : "Login"}
                                 </Button>
                                 <FieldDescription className="text-center mt-4">

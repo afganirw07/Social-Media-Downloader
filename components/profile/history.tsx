@@ -6,9 +6,12 @@ import {
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { historyData } from "./mock"
 
-export default function DownloadHistory() {
+interface Props {
+  historyData: any[]
+}
+
+export default function DownloadHistory({ historyData }: Props) {
   return (
     <Card>
       <CardHeader>
@@ -16,31 +19,34 @@ export default function DownloadHistory() {
       </CardHeader>
 
       <CardContent className="space-y-4">
-        {historyData.map((item) => (
-          <div
-            key={item.id}
-            className="flex justify-between items-center p-4 border rounded-lg hover:bg-muted/40 transition"
-          >
-            <div>
-              <p className="font-medium">
-                {item.title}
-              </p>
-              <p className="text-sm text-muted-foreground">
-                {item.platform} • {item.date}
-              </p>
-            </div>
+        {historyData.length === 0 ? (
+          <p className="text-center text-muted-foreground py-10">No download history found.</p>
+        ) : (
+          historyData.map((item) => (
+            <div
+              key={item.id}
+              className="flex justify-between items-center p-4 border rounded-lg hover:bg-muted/40 transition"
+            >
+              <div className="flex-1 min-w-0 pr-4">
+                <p className="font-medium truncate" title={item.url}>
+                  {item.url}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {item.platform} • {new Date(item.createdAt).toLocaleDateString()}
+                </p>
+              </div>
 
-            <div className="flex items-center gap-4">
-              <Badge>{item.quality}</Badge>
-              <p className="text-sm text-muted-foreground">
-                {item.sizeMB} MB
-              </p>
-              <Button size="sm">
-                Download Again
-              </Button>
+              <div className="flex items-center gap-4">
+                <Badge variant="outline">{item.fileType}</Badge>
+                <Button size="sm" asChild>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    View Original
+                  </a>
+                </Button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </CardContent>
     </Card>
   )

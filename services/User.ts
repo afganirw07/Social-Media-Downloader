@@ -63,3 +63,18 @@ export const UserLogin = async (data: { email: string; password: string }) => {
         console.log(error);
     }
 }
+
+// get by user id
+export const GetUserById = async (id: string) => {
+    try {
+        const res = await Connect(`/api/user/${id}`, {
+            method: "GET",
+        });
+        return res;
+        console.log(res);
+    } catch (error) {
+        console.error(error);
+        throw error;
+        console.log(error);
+    }
+}

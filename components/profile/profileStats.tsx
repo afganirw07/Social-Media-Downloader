@@ -1,26 +1,38 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
-import { useMemo } from "react"
+import { useEffect, useMemo, useState } from "react"
+
 
 interface Props {
   historyData: any[]
+  user: any
 }
 
-export default function ProfileStats({ historyData }: Props) {
+export default function ProfileStats({ historyData, user }: Props) {
   const totalDownloads = historyData.length
+  const [download, setDownload] = useState(user?.downloads || 0)
 
   const totalSize = historyData.reduce(
-    (acc, item) => acc + item.sizeMB,
+    (acc, item) => acc + (item.sizeMB || 0),
     0
   )
 
+
   const favoritePlatform = useMemo(() => {
+    if (historyData.length === 0) return "None"
     const count: Record<string, number> = {}
 
     historyData.forEach((item) => {
-      count[item.platform] = (count[item.platform] || 0) + 1
+      if (item.platform) {
+        count[item.platform] = (count[item.platform] || 0) + 1
+      }
     })
 
-    return Object.keys(count).reduce((a, b) =>
+    const keys = Object.keys(count)
+    if (keys.length === 0) return "None"
+
+    return keys.reduce((a, b) =>
       count[a] > count[b] ? a : b
     )
   }, [historyData])

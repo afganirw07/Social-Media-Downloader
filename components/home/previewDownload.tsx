@@ -1,7 +1,7 @@
 "use client"
 
-import { Card, CardBody } from "@heroui/card"
 import { Button } from "../ui/button"
+import { Download } from "lucide-react"
 
 interface PreviewDownloadProps {
   previewData: any
@@ -17,39 +17,39 @@ export default function PreviewDownload({ previewData }: PreviewDownloadProps) {
   }
 
   return (
-    <div className="flex items-center justify-center p-6 font-sans">
-      <Card className="w-full max-w-5xl rounded-lg overflow-hidden border-none">
-        <CardBody className="p-0">
-          <div className="p-8 pb-4">
-            <div className="relative aspect-video bg-[#E0E0E0] rounded-sm flex items-center justify-center overflow-hidden">
-              {videoUrl ? (
-                <video
-                  src={videoUrl}
-                  controls
-                  controlsList="nodownload"
-                  onContextMenu={(e) => e.preventDefault()}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-contain"
-                />
-              ) : (
-                <span className="text-2xl font-medium text-gray-800 tracking-tight">Preview</span>
-              )}
-            </div>
-          </div>
+    <div className="flex items-center justify-center px-4 py-10">
+      <div className="w-full max-w-5xl space-y-5">
 
-          <div className="p-8 pt-4 pb-12">
-            <Button
-              onClick={handleManualDownload}
-              className="w-full rounded-sm py-8 flex items-center justify-center cursor-pointer bg-black hover:bg-gray-800 text-white"
-            >
-              <h1 className="text-2xl font-medium tracking-tight">Download Now</h1>
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
+        {/* Video Container */}
+        <div className="relative aspect-video rounded-xl border border-gray-200 bg-gray-50 overflow-hidden shadow-sm">
+          {videoUrl ? (
+            <video
+              src={videoUrl}
+              controls
+              controlsList="nodownload"
+              onContextMenu={(e) => e.preventDefault()}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-contain"
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center">
+              <span className="text-lg font-medium text-gray-400">No preview available</span>
+            </div>
+          )}
+        </div>
+
+        {/* Download Button */}
+        <Button
+          onClick={handleManualDownload}
+          className="w-full h-12 rounded-xl cursor-pointer bg-black hover:bg-gray-900 text-white transition-colors duration-200"
+        >
+          <Download className="h-4 w-4" />
+          <span className="text-sm font-semibold tracking-wide">Download</span>
+        </Button>
+      </div>
     </div>
   )
 }

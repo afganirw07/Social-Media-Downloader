@@ -1,17 +1,18 @@
 import ProfileSidebar from "./sidebar"
 import DownloadHistory from "./history"
 import AccountSettings from "./accountSett"
-
 interface Props {
   user: any
   activeTab: "account" | "history"
   onTabChange: (tab: "account" | "history") => void
+  historyData: any[]
 }
 
 export default function ProfileLayout({
   user,
   activeTab,
   onTabChange,
+  historyData,
 }: Props) {
   return (
     <div className="container mx-auto py-10 px-4">
@@ -24,8 +25,8 @@ export default function ProfileLayout({
         />
 
         <div className="md:col-span-3">
-          {activeTab === "account" && <AccountSettings user={user} />}
-          {activeTab === "history" && <DownloadHistory />}
+          {activeTab === "account" && <AccountSettings user={user} historyData={historyData} />}
+          {activeTab === "history" && <DownloadHistory historyData={historyData} />}
         </div>
 
       </div>

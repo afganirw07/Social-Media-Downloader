@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   Card,
   CardContent,
@@ -10,15 +10,22 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import ProfileStats from "./profileStats"
-import { historyData } from "./mock"
 
 interface Props {
   user: any
+  historyData: any[]
 }
 
-export default function AccountSettings({ user }: Props) {
-  const [name, setName] = useState(user.name)
-  const [email, setEmail] = useState(user.email)
+export default function AccountSettings({ user, historyData }: Props) {
+  const [name, setName] = useState(user?.name || user?.email?.split('@')[0] || "")
+  const [email, setEmail] = useState(user?.email || "")
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name || user.email?.split('@')[0] || "")
+      setEmail(user.email || "")
+    }
+  }, [user])
 
   return (
     <>
@@ -39,14 +46,15 @@ export default function AccountSettings({ user }: Props) {
             <label className="text-sm font-medium">
               Email
             </label>
-            <Input value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Input value={email} disabled className="bg-muted cursor-not-allowed" />
+            <p className="text-xs text-muted-foreground mt-1">Email cannot be changed.</p>
           </div>
 
           <Button>Save Changes</Button>
         </CardContent>
       </Card>
 
-      <ProfileStats historyData={historyData} />
+      <ProfileStats historyData={historyData} user={user} />
     </>
   )
 }

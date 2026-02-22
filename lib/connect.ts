@@ -1,10 +1,17 @@
 import { getServerSession } from "next-auth";
+import { getSession } from "next-auth/react";
 import { authOptions } from "@/lib/auth";
 
 export async function Connect(path: string, options: RequestInit = {}) {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
-    const session = await getServerSession(authOptions);
+    let session;
+    if (typeof window !== "undefined") {
+        session = await getSession();
+    } else {
+        session = await getServerSession(authOptions);
+    }
+
     const token = session?.user.accessToken || "";
     // console.log("====TOKEN====", token);
 
