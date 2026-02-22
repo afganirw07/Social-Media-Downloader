@@ -62,17 +62,6 @@ export default function ProfileStats({ historyData, user }: Props) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardContent className="py-6">
-          <p className="text-sm text-muted-foreground">
-            Total Size Downloaded
-          </p>
-          <p className="text-2xl font-bold">
-            {totalSize} MB
-          </p>
-        </CardContent>
-      </Card>
-
     </div>
   )
 }
