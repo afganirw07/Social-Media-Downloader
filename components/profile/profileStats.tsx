@@ -44,8 +44,8 @@ export default function ProfileStats({ historyData, user }: Props) {
       bg: "bg-amber-50 dark:bg-amber-950/30",
     },
     {
-      label: "Account Type",
-      value: user?.isPremium ? "Premium" : "Free",
+      label: "Limit",
+      value: user?.tokenBalance.balance,
       icon: Zap,
       color: user?.isPremium ? "text-emerald-500" : "text-gray-400",
       bg: user?.isPremium

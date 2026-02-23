@@ -93,7 +93,7 @@ export function SignupForm({
                             <Field>
                                 <Button
                                     type="submit"
-                                    className="w-full"
+                                    className="w-full cursor-pointer"
                                     disabled={isLoading}
                                 >
                                     {isLoading ? "Creating..." : "Create Account"}

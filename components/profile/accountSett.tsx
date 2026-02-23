@@ -58,7 +58,7 @@ export default function AccountSettings({ user, historyData }: Props) {
           <div className="space-y-1.5">
             <label className="text-sm font-medium flex items-center gap-2 text-foreground">
               <User className="h-4 w-4 text-muted-foreground" />
-              Full Name
+              Username
             </label>
             <Input
               value={name}
