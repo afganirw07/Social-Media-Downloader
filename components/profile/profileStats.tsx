@@ -72,7 +72,7 @@ export default function ProfileStats({ historyData, user }: Props) {
                   {stat.label}
                 </p>
                 <p className="text-xl font-bold leading-tight mt-0.5">
-                  {stat.value}
+                  {stat.value >= 1000? "Unlimited" : stat.value}
                 </p>
               </div>
             </CardContent>

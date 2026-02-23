@@ -1,6 +1,9 @@
 import { Check, X } from "lucide-react"
 import { cn } from "lib/utils"
 import { useRouter } from "next/navigation"
+import { createPayment, webhookPayment } from "@/services/Payment"
+import { getSession } from "next-auth/react"
+import { useState } from "react"
 
 interface PricingFeature {
   text: string
@@ -27,10 +30,35 @@ export default function PricingCard({
   badge
 }: PricingCardProps) {
   const router = useRouter()
+  const [loading, setLoading] = useState(false);
 
-  const toLogin = () => {
-    router.push("/signin")
-  }
+  const handlePayment = async () => {
+    try {
+      const session = await getSession();
+
+      if (!session) {
+        router.push("/signin");
+        return;
+      } 
+      setLoading(true);
+
+      const res = await createPayment({
+        amount: 170000,
+        description: "Premium Subscription",
+      });
+
+      console.log(res);
+
+      if (res?.data.invoiceUrl) {
+        window.location.href = res.data.invoiceUrl;
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error("Error handling payment:", error);
+    }
+  };
+
+
   return (
     <div className={cn(
       "relative rounded-2xl p-8 transition-all duration-300",
@@ -103,13 +131,13 @@ export default function PricingCard({
         ))}
       </div>
 
-      <button onClick={toLogin} className={cn(
+      <button onClick={handlePayment} className={cn(
         "w-full py-3 px-6 cursor-pointer font-bold rounded-xl transition-all duration-300",
         isPremium
           ? "bg-white text-black hover:bg-gray-50 shadow-lg hover:shadow-xl"
           : "border-2 border-gray-300 text-gray-700 hover:bg-gray-50"
       )}>
-        {isPremium ? "Upgrade Now" : "Get Started"}
+        {loading ? "Loading..." : "Get Started"}
       </button>
     </div>
   )
