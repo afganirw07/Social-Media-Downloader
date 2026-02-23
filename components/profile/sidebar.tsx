@@ -25,7 +25,7 @@ interface Props {
 export default function ProfileSidebar({ user, activeTab, onTabChange }: Props) {
   const displayName = user?.name || user?.email?.split("@")[0] || "User"
   const initials = displayName.substring(0, 2).toUpperCase()
-  const isPremium = user?.isPremium
+  const isPremium = user?.subscription?.type === "PREMIUM"
 
   return (
     <Card className="md:col-span-1 border border-border/50 shadow-sm rounded-2xl overflow-hidden">
@@ -51,7 +51,7 @@ export default function ProfileSidebar({ user, activeTab, onTabChange }: Props) 
           <div className="flex justify-center pt-1">
             <Badge
               className={`flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full ${isPremium
-                  ? "bg-emerald-500 hover:bg-emerald-500 text-white"
+                  ? "bg-yellow-500 hover:bg-yellow-500 text-white"
                   : "bg-muted text-muted-foreground hover:bg-muted"
                 }`}
             >
