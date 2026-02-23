@@ -39,7 +39,7 @@ export default function PricingCard({
       if (!session) {
         router.push("/signin");
         return;
-      } 
+      }
       setLoading(true);
 
       const res = await createPayment({
@@ -52,9 +52,18 @@ export default function PricingCard({
       if (res?.data.invoiceUrl) {
         window.location.href = res.data.invoiceUrl;
       }
-      setLoading(false);
+
+
+      if (res?.data.externalId) {
+        await webhookPayment({
+          external_id: res.data.externalId,
+          status: "PAID"
+        })
+      }
     } catch (error) {
       console.error("Error handling payment:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
