@@ -14,10 +14,10 @@ jobs:
 
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - name: Set up Node.js
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                   node-version: 20
                   cache: 'npm'
@@ -31,5 +31,6 @@ jobs:
             - name: Run Build
               run: npm run build
 
-            - name: Run tests
+            - name: Run Tests
               run: npm run test
+
