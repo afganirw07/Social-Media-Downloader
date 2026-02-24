@@ -50,7 +50,7 @@ export function SignupForm({
 
         if (!captchaValue) {
             toast.error("Please verify that you are not a robot");
-            return;
+            return; 
         }
         try {
             setIsLoading(true);
