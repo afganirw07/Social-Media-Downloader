@@ -117,7 +117,7 @@ export function SigninForm({
                             <div className="flex items-center justify-center">
                                 <ReCAPTCHA
                                     ref={recaptchaRef}
-                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                                     onChange={handleRecaptchaChange}
                                 />
                             </div>

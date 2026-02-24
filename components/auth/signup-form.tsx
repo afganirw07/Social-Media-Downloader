@@ -107,7 +107,7 @@ export function SignupForm({
                             <div className="flex items-center justify-center">
                                 <ReCAPTCHA
                                     ref={captchaRef}
-                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                                     onChange={handleCaptchaChange}
                                 />
                             </div>
