@@ -20,7 +20,7 @@ import { useState } from "react"
 import { toast } from "sonner"
 
 interface InputInputGroupProps {
-    setPreviewData: (data: any) => void
+    setPreviewData?: (data: any) => void
 }
 
 export function InputInputGroup({ setPreviewData }: InputInputGroupProps) {
@@ -79,7 +79,7 @@ export function InputInputGroup({ setPreviewData }: InputInputGroupProps) {
 
             if (result) {
                 setLoading(false)
-                setPreviewData(result)
+                setPreviewData?.(result)
             }
         } catch (error) {
             console.error("Download error:", error)
