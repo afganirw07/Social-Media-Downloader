@@ -17,10 +17,12 @@ import {
 } from "@/components/ui/field"
 import { getSession, signIn } from "next-auth/react";
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Login from "@/types/Login"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
+
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export function SigninForm({
     className,
@@ -33,8 +35,22 @@ export function SigninForm({
         ;
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const recaptchaRef = useRef(null);
+    const [recaptchaValue, setRecaptchaValue] = useState(null);
+
+    const handleRecaptchaChange = (value: any) => {
+        setRecaptchaValue(value);
+    };
+
+
+
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (!recaptchaValue) {
+            toast.error("Please verify that you are not a robot");
+            return;
+        }
 
         try {
             setIsLoading(true);
@@ -98,6 +114,13 @@ export function SigninForm({
                                 </div>
                                 <Input id="password" type="password" required value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
                             </Field>
+                            <div className="flex items-center justify-center">
+                                <ReCAPTCHA
+                                    ref={recaptchaRef}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                    onChange={handleRecaptchaChange}
+                                />
+                            </div>
                             <Field>
                                 <Button type="submit" className="w-full cursor-pointer">
                                     {isLoading ? "Loading..." : "Login"}

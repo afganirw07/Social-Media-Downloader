@@ -17,10 +17,11 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import RegisterUser from "@/types/RegisterUser"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { UserRegister } from "@/services/User"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export function SignupForm({
     className,
@@ -32,12 +33,25 @@ export function SignupForm({
         password: "",
     })
     const [isLoading, setIsLoading] = useState(false);
+    const captchaRef = useRef<ReCAPTCHA>(null);
+    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
 
     const router = useRouter();
 
 
+
+    const handleCaptchaChange = (value: string | null) => {
+        setCaptchaValue(value);
+    }
+
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (!captchaValue) {
+            toast.error("Please verify that you are not a robot");
+            return;
+        }
         try {
             setIsLoading(true);
             const res = await UserRegister(data);
@@ -90,6 +104,13 @@ export function SignupForm({
                                     Must be at least 8 characters long.
                                 </FieldDescription>
                             </Field>
+                            <div className="flex items-center justify-center">
+                                <ReCAPTCHA
+                                    ref={captchaRef}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                    onChange={handleCaptchaChange}
+                                />
+                            </div>
                             <Field>
                                 <Button
                                     type="submit"
