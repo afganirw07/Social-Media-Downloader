@@ -31,6 +31,7 @@ export default function PricingCard({
 }: PricingCardProps) {
   const router = useRouter()
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handlePayment = async () => {
     try {
@@ -60,8 +61,22 @@ export default function PricingCard({
           status: "PAID"
         })
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error handling payment:", error);
+
+      try {
+        const jsonString = error.message.split(": ")[1];
+
+        if (jsonString) {
+          const parsed = JSON.parse(jsonString);
+          setError(parsed.message);
+        } else {
+          setError(error.message);
+        }
+      } catch {
+        setError("Something went wrong");
+      }
+      
     } finally {
       setLoading(false);
     }
@@ -139,6 +154,12 @@ export default function PricingCard({
           </div>
         ))}
       </div>
+
+      {error && (
+        <div className="mb-4 p-3 rounded-lg bg-red-100 text-red-700 text-sm">
+          {error}
+        </div>
+      )}
 
       <button onClick={handlePayment} className={cn(
         "w-full py-3 px-6 cursor-pointer font-bold rounded-xl transition-all duration-300",
